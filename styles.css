@@ -1,0 +1,82 @@
+
+img {
+width: 100%;
+max-width: 500px;
+}
+
+h1, p {
+    word-wrap: break-word; /* Prevents words from overflowing */
+    white-space: normal; /* Ensures text wraps */
+}
+
+ul, li {
+    display: block; /* Default vertical list display */
+}
+
+ /* Apply full height to the body */
+ html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-image: url('media/BACKGROUND.webp');
+    background-attachment: fixed; /* The background will stay fixed during scroll */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-start; /* Distribute content with space between */
+    font-family: 'Roboto', sans-serif;
+}
+
+footer {
+    text-align: center; /* Center content horizontally */
+    padding: 0.1px;
+    color: white;
+    font-size: 12px;
+    margin-top: auto;
+}
+
+/* Define basic button styles */
+.btn {
+    background-color: #f5a91d; /* Blue background */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #ca6c00;
+}
+
+/* Button Grid Styles */
+.button-grid {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between buttons */
+    max-width: 800px; /* Max width for the grid */
+    margin: 0 auto; /* Center grid horizontally */
+}
+
+.center {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .button-grid {
+        grid-template-columns: 1fr;
+    }
+}
