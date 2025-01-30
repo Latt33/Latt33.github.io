@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Webpage</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .wrapper {
+                    width: 75%; /* Makes the wrapper 75% of the screen width */
+                    background-color: rgba(255, 255, 255, 0.555); /* Semi-transparent white */
+                    border-radius: 5px; /* Rounded corners */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+                    padding: 20px; /* Inner spacing */
+                    display: flex; /* Flex container for content alignment */
+                    flex-direction: column; /* Stack content vertically */
+                    justify-content: center; /* Center horizontally */
+                    align-items: center; /* Center vertically */
+                }
+    </style>
+</head>
+
+<body style="align-items: center;">
+    <header style="color: azure;"><h1>Documentation of Media Optimization and Copyright Assignment</h1></header>
+    
+    <b style="color: azure;">Navigation:</b>
+    <nav class="menu">
+        <a href="../index.html" class="btn" style="scale: 0.75;">Front Page</a>
+        <a href="../documentation.html" class="btn" style="scale: 0.75;">Project Management</a></li>
+        <a href="../about.html" class="btn" style="scale: 0.75;">About Me</a></li>
+    </nav>
+    
+    <div class="wrapper">    
+        <section>
+            <h1>General Use of Different Media File Types Used on Web</h1>
+            <p>
+                Media files are nowadays used on almost every website.
+                Media files provide an easy way to express concepts and ideas in a compact manner.
+                For example, images and videos can be used to visualize different things.
+                Source code and project files on the other hand can be used to provide details to those interested.
+                There exists many different types of files for each type of media and data. To give a few examples, images can be stored as
+                jpg, png or webp, videos in mp4, WebM or AVI and source code in HTML or CSS format. A format means a way to store the data in a file.
+                <br><br>
+                However, media files can be heavy for the site as they can take up large amount of memory. That's why it is generally
+                a good idea to think about media optimization. Media optimization means that
+                media used on web is also optimized for web. This generally means making the files less memory intensive.
+                The less memory a file takes, the faster the page loads which is naturally good for web users.
+            </p>
+
+            <h1>Image Management for Web</h1>
+            <p>
+                As discussed above, images are a common target for optimization.
+                Image files can be managed multiple ways. First possibility to reduce size of the image file
+                is to crop the image. Cropping means the removal of, often irrelevant, areas of the image.
+                Another option is to resize image which means adding or remowing digital material, that is either pixels or vector data.
+                Third most common option is to compress the image. Compressing is algorithm-based data stroring. In a way, image compression
+                packs the image to take up less size.
+                <br><br>
+                An example of compressed image is shown in the picture below. The modifications to this picture are done 
+                using ImageMagick software and command-line. The original size of the image was 2880x1620 px. The image was first 
+                resized to 1920 px in width. Then I converted image to jpg format and stripped the metadata. After that 
+                the image checked the requirements of 1920 px width and less tha 550 kB in size (now 116 kB). Command-line commands
+                used are the following.
+                    <pre>
+                <code>
+                    magick input.png -resize 1920 resized.png
+                    magick resized.png -quality 85 compressed.jpg
+                    magick input.jpg -strip output.jpg
+                </code>
+                    </pre>
+            </p>
+
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/rc-formula.jpg" alt="example of code used in project">
+                <figcaption style="margin-top: 8px;">Example of an optimized image</figcaption>
+            </figure>
+
+            <h1>Video Management for Web</h1>
+            <p>
+                Video files can be more challenging to optimize. For example, it took me abou 10 minutes to reduce the size of the image
+                file gy half with no experience. In contrast it took 30 minutes to halve the size of the video file. 
+                Video file management involves a lot of same kinds of consepts as image file management. For example video resizing and compression 
+                both work very much the same way as in image management. In addition to these, videos can be also cutted and captured to be a better fit for the web.
+                Cutting the video means simply extracting the unnessessary parts. Correct video capture in the first place allows one to modify the video less or more easily.
+                Also when capturing the video, one also determines the format, which also plays a crucial role when it comes to file size.
+                <br><br>
+                An example of compressed video is shown embedded below. The modifications to this video are done 
+                using ffmpeg software and command-line. The original size of the video was over 70 MB.
+                Command used in modifications is the following:
+                    <pre>
+                <code>
+                    ffmpeg -i input.mp4 -t 10 -vf "scale=1280:720,format=yuv420p" 
+                    -c:v libx264 -preset slow -crf 40 -b:v 10k -an 
+                    -movflags +faststart output.mp4
+                </code>
+                    </pre>
+                The result is a very low quality video, but it is less than 1 MB! All the crucial information is still well visible in video.
+            </p>
+            
+            <video width="640px" height="360px" controls style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <source src="../media/modified_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <h1>Copyright, Licensing and AI</h1>
+            <p>
+                Addressing copyright, licensing and AI matters is important when creating a documentation website.
+                Copyright allows one to protect their own original work from being copied and used by others. 
+                Licensing on the other hand expresses how other people can use content on your documentation page. 
+                One can for example express that all the things on documentation site is open-source or then entirely restricted from outer use.
+                Last but nowadays not least, AI matters should be taken into account. One can for example use ai.txt files to tell web crawlers that collect data for AI 
+                development how to use data on this site. However it is also adviced to tell if and how you have used AI to create 
+                content visible on you documentation website. 
+                By clearly addressing copyright, licensing and AI considerations, one can first of all 
+                protect their own work but also others.
+                <br><br>
+                My choise of license for the documentation page is visible in the footer and is based on Creative Commons License Chooser.
+                I chose this license because it protects and serves the purpose of this website the best. For AI data mining, I have created a ai.txt file using
+                <a href =https://site.spawning.ai/spawning-ai-txt#ai-text-generator>Spawning</a> which is a website for creating ai.txt files.
+                <br><br>
+                <br><br>
+                <br><br>                 
+            </p>
+
+        </section> 
+    </div>
+
+
+    <div class="footer">
+        <div class="footer" style="text-align: center;">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+                <span property="dct:title">Digital Fabrication Documentation</span> by <span property="cc:attributionName">Atte Laakso</span>
+                is licensed under 
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+                    CC BY-NC-SA 4.0
+                </a>
+                <div style="display: inline-flex; justify-content: center; align-items: center;">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">
+                </div>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

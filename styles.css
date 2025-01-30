@@ -28,15 +28,47 @@ body {
     flex-direction: column; /* Stack content vertically */
     justify-content: flex-start; /* Distribute content with space between */
     font-family: 'Roboto', sans-serif;
+    padding-bottom: 400px;
 }
 
-footer {
-    text-align: center; /* Center content horizontally */
-    padding: 0.1px;
-    color: white;
-    font-size: 12px;
-    margin-top: auto;
-}
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    background-color: #3f3f3fc5; /* Dark background for better visibility */
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .footer p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer a {
+    color: #4caf50; /* Highlight links with green color */
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  .footer img {
+    height: 18px; /* Smaller icons for better alignment */
+    margin-left: 5px;
+    vertical-align: text-bottom;
+  }
+
+  .footer span {
+    font-weight: bold;
+  }
+  
 
 /* Define basic button styles */
 .btn {
