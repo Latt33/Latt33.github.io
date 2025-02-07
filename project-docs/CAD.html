@@ -4,17 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Documentation Webpage</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .wrapper {
+                    width: 75%; /* Makes the wrapper 75% of the screen width */
+                    background-color: rgba(255, 255, 255, 0.555); /* Semi-transparent white */
+                    border-radius: 5px; /* Rounded corners */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+                    padding: 20px; /* Inner spacing */
+                    display: flex; /* Flex container for content alignment */
+                    flex-direction: column; /* Stack content vertically */
+                    justify-content: center; /* Center horizontally */
+                    align-items: center; /* Center vertically */
+                }
+    </style>
 </head>
 
-<body>
-    <p>To be added</p>
+<body style="align-items: center;">
+    <header style="color: azure;"><h1>Documentation of CAD Assignment</h1></header>
+    
+    <b style="color: azure;">Navigation:</b>
+    <nav class="menu">
+        <a href="../index.html" class="btn" style="scale: 0.75;">Front Page</a>
+        <a href="../documentation.html" class="btn" style="scale: 0.75;">Project Management</a></li>
+        <a href="../about.html" class="btn" style="scale: 0.75;">About Me</a></li>
+    </nav>
+    
+    <div class="wrapper">    
+        <section>
+            <h1>CAD and Me</h1>
+            <p>
+                CAD or computer aided design is one of the most useful tools in a toolbox of a creative person,
+                especially an engineer's or an architect's. Computer aided design means any sort of design process
+                where computers are used to help to e.g. design, visualize and/or simulate different things. 
+                Generally, when someone speaks about CAD software, they are speeking about parametric CAD software like 
+                Solidworks or AutoCAD where user can do very precise models using actual measurements and constraints.
+                <br><br>
+                My personal view on CAD is that it is a crucial part of modern world and different forms of it
+                can benefit greatly all kinds of fields. Personally, I don't have any experience on CAD 
+                apart from using Blender for non-parametric 3D modelling and visualization as well as MATLAB and Python for 
+                different physics simulations. There is really no courses on parametric CAD in the applied physics bachelors program
+                if one doesn't select them from outside the program. I would like to learn more especially about the engineering side of different CAD 
+                programs so that I would at least be able to inspect different models and do simple modifications to them. 
+            </p>
 
-    <footer>
-        <p> &copy; Atte Laakso </p>
-        <p> email: atte.laakso@aalto.fi </p>
-    </footer>
+            <h1>Parametric CAD and Geometry</h1>
+            <p>
+                In a typical CAD software, like FreeCAD, the design process of an object often starts by making a sketch of the base of some part. 
+                This happens in a sketcher, where the user adds points, lines, curves and arcs to make a 2D version of a part that is then modified to 3D space. 
+                To help the user, the software offers ability to use different types of lines. Ones that are actually part of the object being design, called real geometry, 
+                and lines that are just to aid the design process, called construction lines. In my test object, I tried out basic shapes, like lines, polylines and circles.
+                Below is a picture from my test object and the sketch I used to make the largest part in it. For this, I used mainly just real geometry and used the origin of the axes 
+                to constrain the sketch into place. To help a little, there is one construction geometry point in the center of the top part.
+            </p>
+
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/sketch.png" alt="the picture that is descibed above">
+            </figure>
+
+            <h1>Degrees of Freedom and Constraints</h1>
+            <p>
+                As one makes a sketch in sketcher, one can move around the different points and lines however they want.
+                Degrees of freedom tell, in how many ways can one move around the points. For example, if one has constrained 
+                points to be on a spesific line, the points have one degree of freedom, as they can only move along that line. Also rotations
+                around any axis are considered degrees of freedom.
+                <br><br>
+                However, this is not very ideal for making a precise model for actual production, for example. 
+                It is often wanted that dimensions and alligments are not interrupted even by accident. This is why the constraints
+                are important. Constraints are used to constrain lines and points according to the constraint in question. For example, 
+                one can constrain lines to be vertical to each other or distance between two points to be some exact distance. 
+                Using constraints, the designer can ensure that the design is properly alligned and not as easily messed up as one can only 
+                modify fully constrained sketch by modifying the constraints. For example, 
+                in the sketch for my test object, there are multiple examples on the distance and parallel constraints. But tjose are just examples. 
+                One can also constrain angles, diameters, equality, symmetry and much more.
+            </p>
+            
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/sketch.png" alt="the picture that is descibed above">
+                <figcaption style="margin-top: 8px;">Example of an optimized image</figcaption>
+            </figure>
+
+            <h1>3D Shape and Part Design</h1>
+            <p>
+                There are endless ways to construct a 3D object. However, there are some basic modifications on which the more advanced ones are based on. 
+                Extruding, or padding, is used to extrude a face into 3D space along some curve or axis. For example, in my test object, I extruded the silhouette 
+                of the largest block by using pad tool. On the other hand, revolution is a bit modified version of extruding. Revolution rotates 2D sketch around some 
+                axis to create a sort of a pipe for example. The 90 degree square profile curve in my object is made with revolution. I also tried pocket tool to make 
+                holes into the model. The pocket tool is sort of a subtracting version of extruding or padding. Pocket tool subtracts some profile with some depth from other object. 
+                The part made using these modifications is visible in the picture below.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/mid-way.png" alt="the picture that is descibed above">
+            </figure>
+            <p>
+                Loft can be used to make more creative shapes. In lofting, the user draws profiles into different planes and the tool then combines those profiles into a 3D object. 
+                The sidepipes in my test object are done using loft. Lofting can be also subractive and the hexagonal shape trough my test object is there to visualize that. My test part 
+                that covers these modifications is visible in the picture below.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/ready_sketch.png" alt="the picture that is descibed above">
+            </figure>
+
+            <h1>Parametric Design and Files</h1>
+            <p>
+                Parametric design can be useful when spesific dimensions are wanted. So therefore almost in every case. 
+                In CAD softwares, it is possible to use spreadsheets to store and modify different parameters, like part dimensions and angles. 
+                It is possible to then use these values in constraints and this way keep a better track on different dimensions and also access and modify them more 
+                easily. In my design, I didn't use the spreadsheet that much, just so that I could test how it works as the working principle is pretty simple. Here is the spreadsheet I used.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/spreadsheet.png" alt="spreadsheet">
+            </figure>
+            <p>
+                I would see that using the spreadsheet makes the design process a lot more clear. It is also a very great tool for easily modify the dimensions of you part later on and/or make different sized parts 
+                using the same design. <a href ="../media/my_design.zip">Here</a> is the zip file of the example object made for this assignment.
+                <br><br>
+                <br><br>
+                <br><br>                 
+            </p>
+
+        </section> 
+    </div>
+
+
+    <div class="footer">
+        <div class="footer" style="text-align: center;">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+                <span property="dct:title">Digital Fabrication Documentation</span> by <span property="cc:attributionName">Atte Laakso</span>
+                is licensed under 
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+                    CC BY-NC-SA 4.0
+                </a>
+                <div style="display: inline-flex; justify-content: center; align-items: center;">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">
+                </div>
+            </p>
+        </div>
+    </div>
 
 </body>
 

@@ -28,7 +28,7 @@ body {
     flex-direction: column; /* Stack content vertically */
     justify-content: flex-start; /* Distribute content with space between */
     font-family: 'Roboto', sans-serif;
-    padding-bottom: 400px;
+    padding-bottom: 200px;
 }
 
 .footer {
