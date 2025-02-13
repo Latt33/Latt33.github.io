@@ -4,17 +4,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Documentation Webpage</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .wrapper {
+                    width: 75%; /* Makes the wrapper 75% of the screen width */
+                    background-color: rgba(255, 255, 255, 0.555); /* Semi-transparent white */
+                    border-radius: 5px; /* Rounded corners */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+                    padding: 20px; /* Inner spacing */
+                    display: flex; /* Flex container for content alignment */
+                    flex-direction: column; /* Stack content vertically */
+                    justify-content: center; /* Center horizontally */
+                    align-items: center; /* Center vertically */
+                }
+    </style>
 </head>
 
-<body>
-    <p>To be added</p>
+<body style="align-items: center;">
+    <header style="color: azure;"><h1>Documentation of Computer-Controlled Cutting Assignment</h1></header>
+    
+    <b style="color: azure;">Navigation:</b>
+    <nav class="menu">
+        <a href="../index.html" class="btn" style="scale: 0.75;">Front Page</a>
+        <a href="../documentation.html" class="btn" style="scale: 0.75;">Project Management</a></li>
+        <a href="../about.html" class="btn" style="scale: 0.75;">About Me</a></li>
+    </nav>
+    
+    <div class="wrapper">    
+        <section>
+            <h1>Types of Computer-Controlled Cutting</h1>
+            <p>
+                 Computer-controlled cutting can be used in many different applications, like in fabrication of 
+                 stickers, wooden parts or metal components. 
+                 Vinyl cutting uses a blade to cut the design out of materials like vinyl or heat transfer film. 
+                 Laser cutting in the other hand can be taken as a more violent version of this.
+                 A laser cutter uses powerfull laser to cut the design out of nearly any material 
+                 (this is just up to the specs of the laser). 
+                 Waterjet cutting can be used in somewhat similar usecases as laser, but as the cutting 
+                 is done with high pressure water, this is more suitable for cutting and graving thicker materials and/or less precise designs. 
+                 <br><br>
+                 There are also other more advanced cutting methods, such as CNC milling and plasma cutting and many more. 
+                 In essence, there will be a computer-controlled cutting method for nearly any part. It is the designer's task to 
+                 figure out, which ones they can/should/could use for fabricating their design. In the end, each technique has it's own pros and cons.
+            </p>
 
-    <footer>
-        <p> &copy; Atte Laakso </p>
-        <p> email: atte.laakso@aalto.fi </p>
-    </footer>
+            <h1>Working Principle of Laser Cutter</h1>
+            <p>
+                A laser cutter works, as one could guess, by directing a powerfull laser beam onto a material to cut and engrave it based on 
+                instructions given via a computer. The beam is constructed using lenses such that the beam is the most powerfull when it arrives to the surface of the material (at least in the optimal case). 
+                The beam melts, burns and vaporizes the material along the path the cutter is set on. The power, frequency and speed of the laser can be adjusted so that the material 
+                is not burned too much (results in burned edges) or then so that the laser doesn't even cut trough the material but rather just engraves it. These settings of speed, frequency and power 
+                are spesific for each material as each material are different.
+                <br><br>
+                Laser waist is the narrowest part of the laser beam and thus the most effective for the cutting. The waist should be always alligned properly on the surface to cut clean and precise pieces. 
+                Laser focus is used to focus the laser waist onto the surface as talked previously. After alligning the beam correctly, one can obtain the smallest amount of kerf possible. Kerf means the width of the 
+                removed material during cutting. If the laser focus is off, kerf will grow and result in less precise cutting. There are often auto-focus ability in the laser cutter, but the things discussed here should still be 
+                in mind when making the cuts as also the auto-focus can be a bit off sometimes.
+            </p>
+
+            <h1>Designing Lasercuttable Object in FreeCAD</h1>
+            <p>
+                I decided to design a phonestand with a space for a charging cable. I started the design by measuring my phone using a ruler and sketching a simple design on paper. 
+                I then listed the measurements into a spreadsheet in order to use those in the actual 3D design. However, this is where I did the first mistake as I didn't take into account that 
+                it takes more than 1 cm for the charging cable to be under the phone. In the final part, all of the cables can't properly fit under the phone. 
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/laser_spreadsheet.png" alt="picture pf the spreadsheet">
+                <figcaption style="margin-top: 8px;">The spreadsheet I used in my design.</figcaption>
+            </figure>
+            <p>
+                After I had the dimensions of the design in the spreadsheet, I started to model the basic parts using the sketcher in FreeCAD. I used the data of the spreadsheet to 
+                fully constrain all the parts of the phonestand. I used the pad tool to make the parts 4mm thick as I planned to use 4mm plywood as my material. Also here, as I modelled the 
+                joints of the phonestand, I could have taken better into account that as the laser cutter cuts the part, it takes a bit more material out of it so that a 4mm wide gap could be 5mm for example. 
+                However, this didn't turn out to be a problem in the and as all parts fit well together but this is something to keep in mind in the future. Below, there are pictures of the final design.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/laser_sketch.png" alt="picture of the backplate of the design">
+                <figcaption style="margin-top: 8px;">Sketch of the backplate of the design.</figcaption>
+            </figure>
+            <p><br></p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/lasercut_model.png" alt="picture of the design">
+                <figcaption style="margin-top: 8px;">Phonestand model.</figcaption>
+            </figure>
+            <p>
+                As the model was finished, I made a 2D images of all the parts in my design first using the TechDraw ability in FreeCAD to make 2D images of all the parts and then exporting this picture 
+                as pdf into Adobe Illustrator, where I extracted the shapes and made them ready for laser cutting by making sure they are not filled and by adjusting the line thickness to 0.01mm. After this was 
+                done, I added an "A!" using the text tool of the Illustrator and alligned it to approximately center after making the lines of the text to none and fill to a nice red color. 
+                I saved the Adobe file into Adobe cloud service and the design was ready to be cut using the local computer and laser cutter at the Fablab.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/techdraw.png" alt="picture of the lasercuttable design">
+                <figcaption style="margin-top: 8px;">TechDraw of the design. The picture sent to laser cutter was essentially the same as this but in Illustrator.</figcaption>
+            </figure>
+
+            <h1>Lasercut and Assembly</h1>
+            <p>
+                I had used the laser cutter a few times before so the workflow was pretty familiar to me. First I set up the laser cutter by following the instructions that are available via 
+                <a href="https://wiki.aalto.fi/display/AF/Laser+Cutting+with+Epilog+Fusion+Pro+48">this link</a>. I first used a test file with a simple square in it to test that the settings for cutting and 
+                graving are good for the material in use (so here 4mm plywood as discussed above). After checking that the preset 6mm plywood settings and plywood deep encraving settings were good for this case 
+                I sent the actual design to the laser cutter and cut the parts. It turned out that the cut was more or less perfect and all parts fit well together without too little or too much space in the joints. 
+                The only problem that turned out was that the charging cable was not fitting well but otherwise the design is very good as it supports the phone well and is not pushed over easily. 
+                The FreeCAD file of the phonestand and SVG file of the cut ready design can be downloaded via <a href="../media/laser.zip">via this link</a>.           
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/settings_of_lasercutter.jpg" alt="Lasercutter settings">
+                <figcaption style="margin-top: 8px;">Some of the settings for the laser cutter.</figcaption>
+            </figure>
+            <p><br></p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/laser_cutting_in_use.jpg" alt="Lasercutting in progress">
+                <figcaption style="margin-top: 8px;">Lasercutting of the part in progress.</figcaption>
+            </figure>
+            <p><br></p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/assembled phonestand with phone.jpg" alt="Phonestand with the phone">
+                <img src="../media/assembled_phonestand.jpg" alt="Phonestand ready">
+                <figcaption style="margin-top: 8px;">Phonestand with and without a phone.</figcaption>
+            </figure>
+            <p>
+                <br><br>
+                <br><br>
+                <br><br>                 
+            </p>
+        </section> 
+    </div>
+
+
+    <div class="footer">
+        <div class="footer" style="text-align: center;">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+                <span property="dct:title">Digital Fabrication Documentation</span> by <span property="cc:attributionName">Atte Laakso</span>
+                is licensed under 
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+                    CC BY-NC-SA 4.0
+                </a>
+                <div style="display: inline-flex; justify-content: center; align-items: center;">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">
+                </div>
+            </p>
+        </div>
+    </div>
 
 </body>
 
