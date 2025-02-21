@@ -4,17 +4,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Documentation Webpage</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .wrapper {
+                    width: 75%; /* Makes the wrapper 75% of the screen width */
+                    background-color: rgba(255, 255, 255, 0.555); /* Semi-transparent white */
+                    border-radius: 5px; /* Rounded corners */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+                    padding: 20px; /* Inner spacing */
+                    display: flex; /* Flex container for content alignment */
+                    flex-direction: column; /* Stack content vertically */
+                    justify-content: center; /* Center horizontally */
+                    align-items: center; /* Center vertically */
+                }
+    </style>
 </head>
 
-<body>
-    <p>To be added</p>
+<body style="align-items: center;">
+    <header style="color: azure;"><h1>Documentation of Embedded Programming Assignment</h1></header>
+    
+    <b style="color: azure;">Navigation:</b>
+    <nav class="menu">
+        <a href="../index.html" class="btn" style="scale: 0.75;">Front Page</a>
+        <a href="../documentation.html" class="btn" style="scale: 0.75;">Project Management</a></li>
+        <a href="../about.html" class="btn" style="scale: 0.75;">About Me</a></li>
+    </nav>
+    
+    <div class="wrapper">    
+        <section>
+            <h1>What is a Microcontroller (MCU)</h1>
+            <p>
+                An embedded system is a specialized computing system that is designed to perform some spesific task. 
+                Microcontroller (MCU) is a small computer device designed and programmed to control this system. 
+                MCU consists of a prosessor (CPU), memory device (RAM,Flash) and/or input/output ports all in a single chip.
+                MCUs are designed into embedded systems so that they require minimal user intervention.
+                <br><br>
+                MCUs are used in countless applications. Basically every device that performs actions that are not directly controlled by the user 
+                include some sort of MCU. And even if it seems that the user directly controls the device, there might still be a microcontroller to 
+                control the device on a lesser scale like for example in an electric shaver. Few examples of microcontroller applications are:
+                <ul>
+                    <li>Home automation (smart lights, thermostats, speakers, etc.)</li>
+                    <li>Robotics (drones, robot vacuum cleaners, etc.)</li>
+                    <li>Phones and watches</li>
+                    <li>Automotive and Industrial (cars, factory robotics, etc.)</li>
+                </ul>
+                In addition, MCUs provide a flexible layout for own projects. Ideally, MCUs could be used in any device, but in reality they are not the solution to 
+                every problem due to their limited performance or then their size.
+            </p>
 
-    <footer>
-        <p> &copy; Atte Laakso </p>
-        <p> email: atte.laakso@aalto.fi </p>
-    </footer>
+            <h1>Basic Electronic Concepts</h1>
+            <p>
+                Characteristics of an electric circuit can be represented by its simplest in three quantities; 
+                voltage, current and resistance. Voltage describes the electric potential difference between two points and it drives the current trough the circuit. 
+                Current describes the flow of electrons in the circuit. Resistance tell how much object resists the current. 
+                <br><br>
+                Voltage U, current I and resistance R are related via Ohms law U=RI. So for example, if we know how large of a voltage drop we want over some component in our circuit 
+                and we know the current in the circuit, we can determine the required resistance of that component. Ohms law is an idealization of these relations but it works as a simple 
+                and easy guide on how these basic characteristics relate and effect each other.
+            </p>
+
+            <h1>Soldering and Safety</h1>
+            <p>
+                When working with electronics, it is crucial to remember safety in order to save the component as well as yourself from damage. 
+                In soldering process it is most important to remember the following aspects. First, the soldering iron is hot and should be treated carefully. 
+                This is why the soldering iron, when turned on, should be monitored and stored in its own handle when not in use.
+                Secondly, because it is hot, it produces gases that are not nice to breathe in. This is why it is important to remember turning on fume exhaust and solder near it. 
+                Additionally, the working area should be clean of everything that is not used in the process.
+                <br><br>
+                After the soldering is done, it is a good practice to check for possible short circuits using a multimeter. And of course, even common sense 
+                tells that it is not a good idea to work on electronics when they are powered on.
+                <br><br>
+                Below are pictures of the soldered headers as well as a picture of the soldering process where you can also see the fume exhaust. 
+                The soldering process succeeded quite well with very little experience but in the pictures one can see that the connections turned out to be 
+                quite bulky so there is certainly still improvements to be done.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/MCU_soldered.jpg" alt="picture of the MCU soldered">
+                <figcaption style="margin-top: 8px;">The soldered MCU.</figcaption>
+            </figure>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/soldering_process.jpg" alt="Soldering process">
+                <figcaption style="margin-top: 8px;">The soldering in progress. Here you can also see the fume exhaust.</figcaption>
+            </figure>
+
+            <h1>Arduino Code Elements</h1>
+            <p>
+                Arduino sketch is a program for designing programs for Arduino MCUs. Arduino sketch code is based on C/C++ programming languages.
+                It can be written on <a href="https://www.arduino.cc/en/software">Arduino IDE</a>. The skecth includes some basic coding elements like
+                <ul>
+                    <li>
+                        <code>#define</code> is a command for creating macros. 
+                        Macros are essentially symbolic names for values that are replaced in the preprocessor at
+                        compile-time without taking up memory.
+                    </li>
+                    <br>
+                    <li>
+                        <code>setup()</code> is a function that runs once when the Arduino MCU is powered on. 
+                        It can be used to initialize variables, pin setting, etc.
+                    </li>
+                    <br>
+                    <li>
+                        <code>loop()</code> is a function that runs continously (loops) after <code>setup()</code>. 
+                        It is used for the actual functionalities of the MCU like checking inputs and updating outputs.
+                    </li>
+                    <br>
+                    <li>
+                        <code>pinMode()</code> is used in <code>setup()</code> to configure pins as either INPUT, OUTPUT or INPUT_PULLUP.
+                    </li>
+                    <br>
+                    <li>
+                        <code>digitalWrite()</code> is used to control the voltage state of an output pin (either HIGH (5V) or LOW (0V)).
+                    </li>
+                </ul>
+                <br><br>
+                Additionally there is also the possibility to use different variable types, like INT, CHAR, FLOAT and BOOLEAN which have the exactly
+                same functionalities as in most common coding languages. Also the if ... else commands work the very same logic as in other languages.
+                And so does many other functionalities, and to name one for an example, a for-loop is made almost the same as in very basic programming 
+                languages like Python. 
+            </p>
+   
+            <h1>Libraries in Embedded Programming and NEOPIXEL in work</h1>
+            <p>
+                Libraries are collections of ready-made functions one can use after importing the library into use to help and simplify coding for 
+                often some spesific purpose the library relates to. For example, Adafruit NEOPIXEL library provides an easier way to control NEOPIXEL LEDs.
+                The library eases communication protocol handling as well as color mixing of the LEDs. In order for one to use NEOPIXEL library, one can 
+                follow the instructions on <a href="https://wiki.seeedstudio.com/XIAO-RP2040-with-Arduino/">the documentation of the microcontroller used for this assignment</a> 
+                for example.
+                <br><br>
+                An example of a program made using NEOPIXEL is visible below. The code file for this program can be downloaded via 
+                <a href="/media/NEOPIXELS_demo/">this</a> link.
+            </p>
+            <video width="720" height="1280" controls style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <source src="../media/NEOPIXEL_working.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>
+                <br><br>
+                <br><br>
+                <br><br>                 
+            </p>
+        </section> 
+    </div>
+
+
+    <div class="footer">
+        <div class="footer" style="text-align: center;">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+                <span property="dct:title">Digital Fabrication Documentation</span> by <span property="cc:attributionName">Atte Laakso</span>
+                is licensed under 
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+                    CC BY-NC-SA 4.0
+                </a>
+                <div style="display: inline-flex; justify-content: center; align-items: center;">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">
+                </div>
+            </p>
+        </div>
+    </div>
 
 </body>
 
