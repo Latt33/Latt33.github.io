@@ -4,17 +4,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Documentation Webpage</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        .wrapper {
+                    width: 75%; /* Makes the wrapper 75% of the screen width */
+                    background-color: rgba(255, 255, 255, 0.555); /* Semi-transparent white */
+                    border-radius: 5px; /* Rounded corners */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+                    padding: 20px; /* Inner spacing */
+                    display: flex; /* Flex container for content alignment */
+                    flex-direction: column; /* Stack content vertically */
+                    justify-content: center; /* Center horizontally */
+                    align-items: center; /* Center vertically */
+                }
+    </style>
 </head>
 
-<body>
-    <p>To be added</p>
+<body style="align-items: center;">
+    <header style="color: azure;"><h1>Documentation of 3D Printing Assignment</h1></header>
+    
+    <b style="color: azure;">Navigation:</b>
+    <nav class="menu">
+        <a href="../index.html" class="btn" style="scale: 0.75;">Front Page</a>
+        <a href="../documentation.html" class="btn" style="scale: 0.75;">Project Management</a></li>
+        <a href="../about.html" class="btn" style="scale: 0.75;">About Me</a></li>
+    </nav>
+    
+    <div class="wrapper">    
+        <section>
+            <h1>What is Additive Manufacturing</h1>
+            <p>
+                Additive manufaturing is a technique where layers of material are added on top of each other to form an object. 
+                This is done by 3D printing. 3D printing can be done in various ways. Material can be deposed, solidified or joined using different 
+                hardware. The common thing in all forms of 3D printing is that it is computer controlled (if 3D pens are not taken into account). On the other hand, 
+                the 3D printable materials also vary from plastics and liquids to powders and gels.
+                <br><br>
+                The most everyday types of 3D printers are material extrution (like fused deposition modelling (FDM)), photopolymers (like selective laser sintering (SLS)) 
+                and powder bed fusion (like SLS and selective laser melting (SLM)). FDM (also known as fused filament fabrication or FFF) printers are beginning to be very 
+                easily comercially available and it is propably the easiest 3D printing technique for rapid prototyping. A big positive side of FDM is also that they require 
+                little space and the materials for them are also easily available. Both powder bed fusion and photopolymers require not much but still more space, exotic materials
+                and expensive hardware than FDM and they are for that reason more in industrial and R&D use rather than comercial.
+            </p>
 
-    <footer>
-        <p> &copy; Atte Laakso </p>
-        <p> email: atte.laakso@aalto.fi </p>
-    </footer>
+            <h1>Fused Filament Fabrication</h1>
+            <p>
+                FFF or fused filament fabrication, also known as fused deposition modelling (FDM) is the most everyday 3D printing option currently available. 
+                In its simplest form, a FFF printer consists of a printing platform, a computer controlled nozzle and a rig for that nozzle. Also additionally, cameras, 
+                filament rolls and more specialized nozzle controls (more electric motors) can be on the printer based on its usecase.
+                <br><br>
+                In order to print a work in FFF printer, the model must be sliced. Slicing means that the model is sliced so that each slice represents the positions in which the 
+                printer will input filament in that height. The user must also choose the infill, which is the pattern that fills the model inside, the layer height, which determines 
+                how thich layers the printer will print, as well as support structures for the model. Support structures are need because without them, the model will not turn out 
+                as intended as the printer naturally cannot insert the filament on thin air but it needs support from underneath. This is why it needs some special planning already 
+                in the design phase of the model in order for it to be prepped properly for FFF printing.
+            </p>
+
+            <h1>3D Model Design for 3D Printing</h1>
+            <p>
+                To demonstrate the FDM printing, I decided to make a first prototype of a part that could belong in a future project. I used the BB8 droid from Star Wars as an inspiration 
+                as I would like to try and make an own rolling robot like that but in smaller scale.
+                First thing to do was to make a spreadsheet for the dimensions of the print. The spreadsheet is visible in the picture below the inspiration picture.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="https://lumiere-a.akamaihd.net/v1/images/bb-8-main_72775463.jpeg?region=187%2C40%2C882%2C496" alt="BB8 droid">
+                <figcaption style="margin-top: 8px;">The BB8 droid that works as a inspiration for the print.</figcaption>
+            </figure>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/3d/sheet_for_print.png" alt="spreadsheet">
+                <figcaption style="margin-top: 8px;">Spreadsheet for the model. Measurements in millimeters.</figcaption>
+            </figure>
+            <p>
+                After the dimensions were set, I modelled a ball with the outer diameter from the spreadsheet and booleaned a ball with inner diameter from it. After that I made 
+                a sketch of a circle in the origo of the sketch and used the pocket tool subtract a hole trough the entire shell. After that I created a datum plane and modelled a 
+                side support on the edge of the hole and then solidified it using pad tool and mirroring it to the other side using the mirror tool. These side supports will be as 
+                separate part if and when I will do the actual design for the robot like in the inspiration picture. But for now, I just modelled them to be as one part. 
+                Finally, I added an axle trough these side supports. I didn't make it 
+                entirely parametric as it is there just to make the model a bit more challenging to make on any other form of digital fabrication than 3D printing.
+                Final design is presented in picture below.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/3d/3d_print_object.png" alt="spreadsheet">
+                <figcaption style="margin-top: 8px;">Final 3D model.</figcaption>
+            </figure>
+            <p>
+                An entire ball on a FFF printer can be a challenge to make so using supports is unavoidable here as we would also like the axle to be one-piece. 
+                Due to one-piece axle and one-piece ball with holes and supports, this model is not very easily made on any other digital fabrication tool like cutter or CNC milling machine. 
+                So it is a good practice for the 3D printing assignment. The FreeCAD file for the model can be downloaded via <a href="../media/3d/3D-print.zip">this link</a>.
+            </p>
+
+            <h1>3D Model Slicing</h1>
+            <p>
+                 When preparing the model for 3D printting, there are multiple things to consider. First of all the model can be made so that it is more suitable for 3D printing 
+                 for example by modeling it in parts that do not need support stuctures in printing. For my model this doesn't make that much sense as the idea is to have a one-piece 
+                 ball with a axle trough it. So there is not much we can do about the model in this case.
+                 <br><br>
+                 In printer settings, the layer height is chosen to be 0.2 mm as it will still print accurately enough but also reduce printing time. 
+                 Infill precentage is another thing that affects majorly the printing time. Infill precentage is set to 15% as there is really not that much empty space to fill.
+                 Finally, we must add some support structures as the printer cannot print into thin air. We position the model so that the need for the supports is as little as possible and 
+                 enable the supports in printing settings. In the picture below there are screenshots of PrusaSlicer in which I did the slicing and prepping of the model. Note that for the 
+                 final print the ball height was scaled to 6cm in PrusaSlicer to ensure that the gap between the axle and supports was large enough.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/3d/3d_sliced_whole.png" alt="sliced model">
+                <figcaption style="margin-top: 8px;">Sliced model and settings.</figcaption>
+            </figure>
+
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/3d/3d_sliced_bottom.png" alt="sliced model">
+                <figcaption style="margin-top: 8px;">Lower part of the sliced model to demonstrate the printing layers.</figcaption>
+            </figure>
+            <p>
+                The final printing time of this model is estimated to be around 70 minutes which is quite good keeping in mind that there is quite large need for supports in this one in 
+                order to pull it off. This is thanks to low infill precentage and the general lightness and smallness of the model (ball diameter only around 6cm). Here is a picture of the final print.
+            </p>
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/3d/supported_3d.jpg" alt="printed model">
+                <figcaption style="margin-top: 8px;">3D printed model with supports still on.</figcaption>
+            </figure>
+
+            <figure style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin: 0 auto;">
+                <img src="../media/3d/valmis_3d.jpg" alt="printed model w/o supports">
+                <figcaption style="margin-top: 8px;">3D printed model without supports.</figcaption>
+            </figure>
+            <p>
+                <br><br>
+                <br><br>
+                <br><br>                 
+            </p>
+        </section> 
+    </div>
+
+
+    <div class="footer">
+        <div class="footer" style="text-align: center;">
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+                <span property="dct:title">Digital Fabrication Documentation</span> by <span property="cc:attributionName">Atte Laakso</span>
+                is licensed under 
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+                    CC BY-NC-SA 4.0
+                </a>
+                <div style="display: inline-flex; justify-content: center; align-items: center;">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px; vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">
+                </div>
+            </p>
+        </div>
+    </div>
 
 </body>
 
